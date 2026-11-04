@@ -11,7 +11,7 @@ bp = Blueprint('auth', __name__)
 
 RULES = {  # keep in sync with frontend/js/auth.js (the backend is the one that counts)
     'name': (re.compile(r"^[A-Za-z][A-Za-z .'-]{1,59}$"), "Enter your full name (letters, spaces, . ' - only)."),
-    'regNo': (re.compile(r'^\d{9,12}$'), 'Registration number must be exactly 12 digits.'),
+    'regNo': (re.compile(r'^\d{9,12}$'), 'Registration number invalid.'),
     'email': (re.compile(r'^[a-z0-9._%+-]{1,64}@(learner\.)?manipal\.edu$', re.I), 'Use your Manipal email (ending in manipal.edu).'),
     'password': (re.compile(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,64}$'), 'Use 8+ characters with upper-case, lower-case and a number.'),
     'code': (re.compile(r'^\d{6}$'), 'Enter the 6-digit code.'),
