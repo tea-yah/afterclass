@@ -4,7 +4,7 @@
   const form = $('#auth-form'), mode = document.body.dataset.page; // 'signin' | 'signup'
   const RULES = {
     name: [/^[A-Za-z][A-Za-z .'-]{1,59}$/, "Enter your full name (letters, spaces, . ' - only)."],
-    regNo: [/^\d{9}$/, 'Registration number must be exactly 9 digits.'],
+    regNo: [/^\d{9, 12}$/, 'Registration number invalid.'],
     email: [/^[a-z0-9._%+-]+@(learner\.)?manipal\.edu$/i, 'Use your Manipal email (ending in manipal.edu).'],
     password: [/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,64}$/, 'Use 8+ characters with upper-case, lower-case and a number.'],
     code: [/^\d{6}$/, 'Enter the 6-digit code.']
