@@ -153,23 +153,4 @@ python app.py
 ```
 
 Open the local application in your browser using the address printed by Flask (typically `http://127.0.0.1:5000`).
-
-## Deployment
-
-GitHub can be used to host the source code and manage version control. However, the application requires a Python-compatible hosting service for its Flask backend and a MySQL database accessible to that service.
-
-For a production deployment:
-
-1. Push the project repository to GitHub.
-2. Deploy the Flask application using a Python-compatible hosting provider.
-3. Provision a hosted MySQL database.
-4. Configure the database credentials as environment variables on the hosting provider.
-5. Update the application's database connection settings to use the hosted database.
-6. Configure the frontend and backend URLs appropriately.
-7. Test authentication, event retrieval, and database operations after deployment.
-
-**Note:** Do not commit database passwords, secret keys, or other credentials to the repository. Use environment variables for sensitive configuration.
-
-## Contributors
-
-Developed as a Web Technologies mini-project by a team of two students at Manipal Institute of Technology, Manipal.
+t by a team of two students at Manipal Institute of Technology, Manipal.
