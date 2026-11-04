@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Explore events · afterclass</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="explore">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header id="site-header" class="site-header"></header>
+  <main id="main" class="container">
+    <div class="page-head"><h1 class="section__title">Events</h1><span id="list-slot"></span></div>
+    <div id="category-chips" class="chips" role="group" aria-label="Filter by category"></div>
+    <div class="explore">
+      <aside class="filters" aria-label="Filters">
+        <div class="field"><label for="f-q">Search</label><input id="f-q" type="search" placeholder="Title, team or keyword"></div>
+        <div class="field"><label for="f-when">When</label>
+          <select id="f-when">
+            <option value="any">Any time</option><option value="today">Today</option>
+            <option value="week">Next 7 days</option><option value="weekend">This weekend</option>
+            <option value="month">This month</option>
+          </select></div>
+        <div class="field"><label for="f-date">On a specific date</label><input id="f-date" type="date"></div>
+        <div class="field"><label for="f-mode">Mode</label>
+          <select id="f-mode"><option value="">Any</option><option>offline</option><option>online</option><option>hybrid</option></select></div>
+        <label class="check"><input id="f-free" type="checkbox"> Free events only</label>
+        <label class="check"><input id="f-past" type="checkbox"> Show past events</label>
+        <button id="f-reset" class="btn btn--ghost" type="button">Reset filters</button>
+      </aside>
+      <section aria-live="polite">
+        <div class="results-bar">
+          <p id="count" class="muted"></p>
+          <div class="field field--inline"><label for="f-sort">Sort by</label>
+            <select id="f-sort"><option value="asc">Soonest</option><option value="desc">Latest</option></select></div>
+        </div>
+        <div id="results" class="grid grid--2"></div>
+      </section>
+    </div>
+  </main>
+  <footer id="site-footer" class="site-footer"></footer>
+  <script src="js/api.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/explore.js"></script>
+</body>
+</html>

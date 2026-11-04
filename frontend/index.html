@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>afterclass</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/png" href="src/star/Chrome star.png">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="home">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header id="site-header" class="site-header"></header>
+  <main id="main">
+    <section class="hero container">
+      <div class="hero__text">
+        <h1 class="hero__title">Out of class.<br>Into your orbit.</h1>
+        <p class="lead">Hackathons, gigs, workshops and everything in between, all happening at MIT Manipal.</p>
+      </div>
+      <div class="hero__graphic" id="hero-graphic">
+        <div class="star-container">
+          <img src="src/star/Luminous backdrop.png" class="layer bottom" alt="purple gradient">
+          <img src="src/star/Orbital ring.png" class="layer middle" alt="orbit ring">
+          <img src="src/star/Chrome star.png" class="layer top" alt="metallic star">
+        </div>
+      </div>
+      <form class="search" action="events.html" role="search">
+        <label class="visually-hidden" for="hero-q">Search events</label>
+        <input id="hero-q" name="q" type="search" placeholder="A CTF, a club, a spontaneous plan…">
+        <button class="btn btn--primary search__go" type="submit" aria-label="Find events"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </form>
+    </section>
+
+    <section class="section container" aria-labelledby="featured-h">
+      <p class="eyebrow">Consider this your invite</p>
+      <h2 id="featured-h" class="section__title">Happening next on campus</h2>
+      <div id="featured" class="featured"></div>
+    </section>
+
+    <section class="section container" aria-labelledby="cats-h">
+      <h2 id="cats-h" class="section__title">Find your kind of thing</h2>
+      <div id="category-chips" class="chips"></div>
+      <div id="upcoming" class="grid"></div>
+      <p class="center"><a class="btn" href="events.html">Explore all events</a></p>
+    </section>
+
+    <section class="container">
+      <div class="cta">
+        <div>
+          <h2 class="section__title">Your thing deserves a crowd.</h2>
+          <p class="muted">Club meetup, open mic, big idea. Verified organisers will be able to list events here.</p>
+        </div>
+        <button class="btn btn--primary" type="button" data-soon>List your event</button>
+      </div>
+    </section>
+  </main>
+  <footer id="site-footer" class="site-footer"></footer>
+  <script src="js/api.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

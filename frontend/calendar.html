@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calendar · afterclass</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="calendar">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header id="site-header" class="site-header"></header>
+  <main id="main" class="container">
+    <div class="page-head">
+      <h1 class="section__title">Calendar</h1>
+      <div class="cal__nav">
+        <button class="btn" type="button" id="prev" aria-label="Previous month">←</button>
+        <h2 class="cal__month" id="month" aria-live="polite"></h2>
+        <button class="btn" type="button" id="next" aria-label="Next month">→</button>
+      </div>
+    </div>
+    <ul class="legend">
+      <li><i class="swatch swatch--academic"></i>Academic calendar</li>
+      <li><i class="swatch swatch--student"></i>Events you're attending</li>
+    </ul>
+    <p id="cal-note" class="banner" hidden></p>
+    <div id="cal"></div>
+  </main>
+  <footer id="site-footer" class="site-footer"></footer>
+  <script src="js/api.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/calendar.js"></script>
+</body>
+</html>

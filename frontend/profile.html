@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your events · afterclass</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="saved">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header id="site-header" class="site-header"></header>
+
+  <main id="main" class="container">
+    <div class="page-head">
+      <h1 class="section__title">Your events</h1>
+    </div>
+
+    <section id="profile-card" class="profile-card" aria-label="Your profile">
+      <div id="profile-avatar" class="profile-card__avatar"></div>
+      <div class="profile-card__details">
+        <h2 id="profile-name">Loading profile...</h2>
+        <p id="profile-role" class="muted"></p>
+        <div class="profile-card__meta">
+          <p><span>Registration number</span><strong id="profile-regno"></strong></p>
+          <p><span>Email</span><strong id="profile-email"></strong></p>
+          <p id="profile-teams-row" hidden><span>Communities</span><strong id="profile-teams"></strong></p>
+        </div>
+      </div>
+    </section>
+
+    <p class="muted">Your events at a glance.</p>
+
+    <h2 class="section__title section">Saved</h2>
+    <div id="saved" class="grid"></div>
+
+    <h2 class="section__title section">Attending</h2>
+    <div id="interested" class="grid"></div>
+  </main>
+
+  <footer id="site-footer" class="site-footer"></footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/saved.js"></script>
+</body>
+</html>
