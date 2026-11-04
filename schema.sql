@@ -4,7 +4,7 @@ USE afterclass;
 
 CREATE TABLE users (
   user_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  registration_number CHAR(9) NOT NULL UNIQUE,
+  registration_number VARCHAR(12) NOT NULL UNIQUE CHECK (LENGTH(registration_number) IN (9, 12)),
   name VARCHAR(60) NOT NULL,
   email VARCHAR(120) NOT NULL UNIQUE,
   password_hash VARCHAR(255) NOT NULL,
