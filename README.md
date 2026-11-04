@@ -1,50 +1,175 @@
-# afterclass: MIT Manipal events (Flask + MySQL + vanilla JS)
+# afterclass
 
-## Layout
-app.py (entry) · database.py (MySQL helpers) · auth.py (register/verify/login/me) · events.py (events, teams, saved, interested)
-academic.py (calendar API) · schema.sql · seed.sql · seed_academic.sql · requirements.txt · frontend/ (HTML, css/, js/, served by Flask)
+**A Campus Event Discovery and Management Platform**
 
-## Run locally
-1. Install Python 3.10+ and MySQL 8 (or MariaDB 10.6+). Start the MySQL server.
-2. `mysql -u root -p < schema.sql` then `mysql -u root -p afterclass < seed.sql`
-3. `python -m venv venv`, then `source venv/bin/activate` (Windows: `venv\Scripts\activate`)
-4. `pip install -r requirements.txt`
-5. Set the DB password (and optionally others), then run:
-   `export DB_PASSWORD=yourpass` (Windows PowerShell: `$env:DB_PASSWORD="yourpass"`)
-   `python app.py`  → open http://127.0.0.1:5000
-   Optional env vars: DB_HOST, DB_PORT, DB_USER, DB_NAME, SECRET_KEY, COOKIE_SECURE=1, DEV_SHOW_OTP=0, TZ_OFFSET_MIN (default 330 = IST)
+Afterclass is a web application designed to help students discover, explore, and keep track of events happening on the MIT Manipal campus. It brings student-organised events, communities, and academic schedules together in one place.
 
-## Try it
-Open the site, sign up (9-digit reg number, @learner.manipal.edu email). Without email delivery, the 6-digit code is shown on screen and printed in the Flask console.
-Then save/mark events. Check the DB: `SELECT * FROM saved_events;`. The pending "Robotics Open House" must NOT appear publicly.
+## Features
 
-## Endpoints (prefix /api)
-POST register · POST verify-email · POST login · POST logout · GET me
-GET events (q, category, tag, team, from, to, mode, free, past, weekend, sort) · GET events/<id> · GET categories · GET teams · GET academic-events (from, to)
-POST|DELETE events/<id>/save · POST|DELETE events/<id>/interest · GET saved-events · GET interested-events
+- **Event Discovery:** Browse campus events and explore event details.
+- **Search and Filtering:** Find events using keywords and categories.
+- **Communities:** Explore student clubs and organisations.
+- **Save Events:** Bookmark events for later.
+- **Express Interest:** Keep track of events you are interested in attending.
+- **Calendar:** View academic events alongside your event schedule.
+- **User Accounts:** Register, sign in, and access your profile.
 
-## Not implemented yet
-Organiser verification + event submission/editing, admin moderation/team/statistics, admin form to add academic events (add them with SQL for now; optional `seed_academic.sql` adds 4 placeholder rows), event reports.
-(Their tables exist in schema.sql.) Email delivery is simulated: the OTP is logged / returned in dev mode.
+## Tech Stack
 
-```sh
-$ flask --app app routes
-Endpoint                  Methods       Rule
-------------------------  ------------  -----------------------------------
-academic.academic_events  GET           /api/academic-events
-auth.login                POST          /api/login
-auth.logout               POST          /api/logout
-auth.me                   GET           /api/me
-auth.register             POST          /api/register
-auth.verify_email         POST          /api/verify-email
-events.categories         GET           /api/categories
-events.get_event          GET           /api/events/<int:event_id>
-events.interest           DELETE, POST  /api/events/<int:event_id>/interest
-events.interested_events  GET           /api/interested-events
-events.list_events        GET           /api/events
-events.save               DELETE, POST  /api/events/<int:event_id>/save
-events.saved_events       GET           /api/saved-events
-events.teams              GET           /api/teams
-index                     GET           /
-static                    GET           /<path:filename>
+| Component | Technology |
+|---|---|
+| Frontend | HTML5, CSS3, JavaScript |
+| Backend | Python, Flask |
+| Database | MySQL |
+| API Communication | REST API, JSON |
+
+## Project Structure
+
+```text
+Afterclass/
+├── academic.py
+├── app.py
+├── auth.py
+├── database.py
+├── events.py
+├── schema.sql
+├── seed.sql
+├── seed_academic.sql
+├── requirements.txt
+└── frontend/
+    ├── index.html
+    ├── events.html
+    ├── event.html
+    ├── calendar.html
+    ├── communities.html
+    ├── profile.html
+    ├── signin.html
+    ├── signup.html
+    ├── css/
+    │   └── styles.css
+    └── js/
+        ├── api.js
+        ├── auth.js
+        ├── calendar.js
+        ├── communities.js
+        ├── event.js
+        ├── explore.js
+        ├── home.js
+        ├── saved.js
+        └── shared.js
 ```
+
+## Getting Started
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+- Python 3
+- MySQL Server
+- Git
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/<your-username>/<repository-name>.git
+cd <repository-name>
+```
+
+### 2. Set up the Python environment
+
+Create and activate a virtual environment:
+
+```bash
+python -m venv venv
+```
+
+On Linux / WSL:
+
+```bash
+source venv/bin/activate
+```
+
+On Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+Install the dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Set up the database
+
+Start your MySQL server and log in:
+
+```bash
+mysql -u root -p
+```
+
+Create the database:
+
+```sql
+CREATE DATABASE afterclass;
+```
+
+Exit the MySQL prompt and import the database schema and sample data:
+
+```bash
+mysql -u root -p afterclass < schema.sql
+mysql -u root -p afterclass < seed.sql
+mysql -u root -p afterclass < seed_academic.sql
+```
+
+### 4. Configure environment variables
+
+Set the database credentials used by the application.
+
+On Linux / WSL:
+
+```bash
+export DB_USER=afterclass
+export DB_PASSWORD=your_password
+```
+
+On Windows PowerShell:
+
+```powershell
+$env:DB_USER="afterclass"
+$env:DB_PASSWORD="your_password"
+```
+
+Use the credentials configured for your local MySQL setup.
+
+### 5. Run the application
+
+Start the Flask server:
+
+```bash
+python app.py
+```
+
+Open the local application in your browser using the address printed by Flask (typically `http://127.0.0.1:5000`).
+
+## Deployment
+
+GitHub can be used to host the source code and manage version control. However, the application requires a Python-compatible hosting service for its Flask backend and a MySQL database accessible to that service.
+
+For a production deployment:
+
+1. Push the project repository to GitHub.
+2. Deploy the Flask application using a Python-compatible hosting provider.
+3. Provision a hosted MySQL database.
+4. Configure the database credentials as environment variables on the hosting provider.
+5. Update the application's database connection settings to use the hosted database.
+6. Configure the frontend and backend URLs appropriately.
+7. Test authentication, event retrieval, and database operations after deployment.
+
+**Note:** Do not commit database passwords, secret keys, or other credentials to the repository. Use environment variables for sensitive configuration.
+
+## Contributors
+
+Developed as a Web Technologies mini-project by a team of two students at Manipal Institute of Technology, Manipal.
