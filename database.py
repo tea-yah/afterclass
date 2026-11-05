@@ -9,7 +9,7 @@ def get_db():
     if 'db' not in g:   # one connection per request; swap for a pool later if needed
         g.db = mysql.connector.connect(
             host=os.environ.get('DB_HOST', 'localhost'), port=int(os.environ.get('DB_PORT', '3306')),
-            user=os.environ.get('DB_USER', 'afterclass'), password=os.environ.get('DB_PASSWORD', 'AFTERCLASS'),
+            user=os.environ.get('DB_USER', 'afterclass'), password=os.environ.get('DB_PASSWORD', ''),
             database=os.environ.get('DB_NAME', 'afterclass'), charset='utf8mb4')
     return g.db
 
