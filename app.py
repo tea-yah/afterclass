@@ -8,7 +8,7 @@ import academic, auth, database, events
 def create_app():
     app = Flask(__name__, static_folder='frontend', static_url_path='')
     app.config.update(
-        SECRET_KEY=os.environ.get('SECRET_KEY', 'dev-only-change-me'),     # set a long random value in production
+        SECRET_KEY=os.environ.get('SECRET_KEY', '261da998f10bdd900a84ad23979fee9b'),     
         SESSION_COOKIE_HTTPONLY=True, SESSION_COOKIE_SAMESITE='Lax',
         SESSION_COOKIE_SECURE=os.environ.get('COOKIE_SECURE') == '1',      # set COOKIE_SECURE=1 behind HTTPS
         PERMANENT_SESSION_LIFETIME=timedelta(days=7))
