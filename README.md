@@ -2,6 +2,8 @@
 
 **A Campus Event Discovery and Management Platform**
 
+![afterclass homepage](./afterclass.png)
+
 Afterclass is a web application designed to help students discover, explore, and keep track of events happening on the MIT Manipal campus. It brings student-organised events, communities, and academic schedules together in one place.
 
 ## Features
