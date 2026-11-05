@@ -153,4 +153,3 @@ python app.py
 ```
 
 Open the local application in your browser using the address printed by Flask (typically `http://127.0.0.1:5000`).
-t by a team of two students at Manipal Institute of Technology, Manipal.
